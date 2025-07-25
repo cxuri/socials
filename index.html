@@ -3,119 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My socials</title>
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <title>cxuri | Social Profiles</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #008080; 
-            font-family: 'MS Sans Serif', Geneva, sans-serif; 
-            color: #fff;
-        }
-        .window {
-            background-color: #C0C0C0; 
-            width: 300px;
-            margin: 50px auto;
-            padding: 5px;
-            box-shadow: 2px 2px 2px #000000;
-            border: 2px solid black;
-        }
-        .window-header {
-            background: #104E8B;
-            color: white;
-            padding: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            font-family: 'MS Sans Serif', Geneva, sans-serif;
-        }
-        .window-body {
-            background-color: #C0C0C0;
-            border-top: 2px solid black;
-            border-left: 2px solid black;
-        }
-        .window .icon {
-            font-size: 50px;
-            margin: 10px;
-            color: black;
-            text-decoration: none;
-            text-align: center;
-        }
-        .icon:hover {
-            color: #008080;
-        }
-        .icon.github {
-            color: black;
-        }
-        .icon.youtube {
-            color: red;
-        }
-        .icon.instagram {
-            color: #E4405F; 
-        }
-
-        p {
-            font-size: 12px;
-            margin-top: 5px;
-            font-family: 'MS Sans Serif', Geneva, sans-serif;
-            color: #000000;
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --accent-color: #4a6fa5;
+            --border-color: #e1e4e8;
         }
         
-
-        .icons-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --text-color: #e1e4e8;
+                --accent-color: #58a6ff;
+                --border-color: #30363d;
+            }
         }
-
-        .inside {
-            background-color: white;
-            padding: 10px;
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+        }
+        
+        header {
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-weight: 500;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-weight: 400;
+        }
+        
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.2s ease;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            border-radius: 50%;
+            margin-bottom: 0.8rem;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .social-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .social-handle {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.2rem;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .social-links {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .social-card {
+                flex-direction: row;
+                justify-content: flex-start;
+                padding: 0.8rem;
+                border-radius: 8px;
+                background-color: rgba(0, 0, 0, 0.03);
+            }
+            
+            .social-icon {
+                margin-bottom: 0;
+                margin-right: 1rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+            }
+            
+            .social-info {
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="window">
-    <div class="window-header">
-        My Socials
-    </div>
-    <div class="window-body">
-        <div class="inside">
-            <div class="icons-container">
-                <div style="text-align: center;">
-                    <a href="https://github.com/cxuri" class="icon github" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <p>Github</p>
+    <div class="container">
+        <header>
+            <h1>cxuri</h1>
+            <p class="subtitle">Developer & Content Creator</p>
+        </header>
+        
+        <div class="social-links">
+            <a href="https://github.com/cxuri" class="social-card" target="_blank">
+                <div class="social-icon">
+                    <i class="fab fa-github"></i>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://youtube.com/@cxuri" class="icon youtube" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <p>YouTube</p>
+                <div class="social-info">
+                    <div class="social-name">GitHub</div>
+                    <div class="social-handle">@cxuri</div>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://instagram.com/z3nsx" class="icon instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <p>Instagram</p>
+            </a>
+            
+            <a href="https://youtube.com/@cxuri" class="social-card" target="_blank">
+                <div class="social-icon">
+                    <i class="fab fa-youtube"></i>
                 </div>
-            </div>
+                <div class="social-info">
+                    <div class="social-name">YouTube</div>
+                    <div class="social-handle">@cxuri</div>
+                </div>
+            </a>
+            
+            <a href="https://instagram.com/z3nsx" class="social-card" target="_blank">
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                    <div class="social-name">Instagram</div>
+                    <div class="social-handle">@z3nsx</div>
+                </div>
+            </a>
         </div>
+        
+        <footer>
+            © 2023 cxuri — All links open in new tab
+        </footer>
     </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-<audio autoplay loop class="audio-player">
-<source src="music.mp3" type="audio/mp3">
-Your browser does not support the audio element.
-</audio>
-
 </body>
 </html>
